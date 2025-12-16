@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Powered by Google, ©2025 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2025</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/Carrera+7d+%23153-04,+Usaqu%C3%A9n,+Bogota/4.728276,-74.024537/@4.7286076,-74.0284388,949m/data=!3m2!1e3!4b1!4m10!4m9!1m5!1m1!1s0x8e3f8f8a4aef17a1:0x1d6aabae1e780a3e!2m2!1d-74.0271957!2d4.7291054!1m1!4e1!3e2?entry=tts&g_ep=EgoyMDI1MTExNi4wKgBIAVAD&skid=7a7eb4ff-565f-4366-bca8-c0c872d16c0a&hl=en</url-->
+    <time>2025-11-19T09:57:59Z</time>
+  </metadata>
+  <wpt lat="4.7291054" lon="-74.0271957">
+    <name>Carrera 7d #153-04</name>
+  </wpt>
+  <wpt lat="4.728276" lon="-74.024537">
+    <name>Unknown</name>
+  </wpt>
+<trk>
+  <name>Carrera 7d #153-04 to Unknown</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="4.7291178" lon="-74.0272553">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="4.72901" lon="-74.02728">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="4.7290052" lon="-74.027279">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="4.72887" lon="-74.027">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="4.72874" lon="-74.02674">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="4.72871" lon="-74.02667">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="4.72869" lon="-74.02665">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="4.72855" lon="-74.02631">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="4.72837" lon="-74.02594">
+    <name>TP009</name>
+  </trkpt>
+  <trkpt lat="4.72831" lon="-74.02581">
+    <name>TP010</name>
+  </trkpt>
+  <trkpt lat="4.72824" lon="-74.02565">
+    <name>TP011</name>
+  </trkpt>
+  <trkpt lat="4.72819" lon="-74.02555">
+    <name>TP012</name>
+  </trkpt>
+  <trkpt lat="4.72816" lon="-74.02548">
+    <name>TP013</name>
+  </trkpt>
+  <trkpt lat="4.72809" lon="-74.02532">
+    <name>TP014</name>
+  </trkpt>
+  <trkpt lat="4.72801" lon="-74.02516">
+    <name>TP015</name>
+  </trkpt>
+  <trkpt lat="4.72799" lon="-74.02511">
+    <name>TP016</name>
+  </trkpt>
+  <trkpt lat="4.72781" lon="-74.02469">
+    <name>TP017</name>
+  </trkpt>
+  <trkpt lat="4.7278124" lon="-74.0246907">
+    <name>TP018</name>
+  </trkpt>
+  <trkpt lat="4.72804" lon="-74.02463">
+    <name>TP019</name>
+  </trkpt>
+  <trkpt lat="4.72813" lon="-74.02461">
+    <name>TP020</name>
+  </trkpt>
+  <trkpt lat="4.72824" lon="-74.02458">
+    <name>TP021</name>
+  </trkpt>
+  <trkpt lat="4.72829" lon="-74.02457">
+    <name>TP022</name>
+  </trkpt>
+  <trkpt lat="4.7282855" lon="-74.0245681">
+    <name>TP023</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

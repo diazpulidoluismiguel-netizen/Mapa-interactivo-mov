@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Powered by Google, ©2025 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2025</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/4.7430848,-74.1227073/Calle+132d+%23154a+05,+Bogot%C3%A1,+111151,+Colombia/@4.7424116,-74.1249651,564m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x8e3f837def7022e7:0xd4d99f2095fb1da6!2m2!1d-74.124957!2d4.7420817!3e2?authuser=0&entry=tts&g_ep=EgoyMDI1MTExNi4wKgBIAVAD&skid=587cab2f-6b7f-4ae5-b1bb-34801969192d&hl=en</url-->
+    <time>2025-11-19T14:21:58Z</time>
+  </metadata>
+  <wpt lat="4.7430848" lon="-74.1227073">
+    <name>Unknown</name>
+  </wpt>
+  <wpt lat="4.7420817" lon="-74.124957">
+    <name>Calle 132d #154a 05</name>
+  </wpt>
+<trk>
+  <name>Unknown to Calle 132d #154a 05</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="4.7430734" lon="-74.1227087">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="4.74289" lon="-74.12316">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="4.74272" lon="-74.12356">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="4.74269" lon="-74.12363">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="4.74254" lon="-74.12399">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="4.74235" lon="-74.12446">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="4.74233" lon="-74.12453">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="4.74224" lon="-74.12476">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="4.74221" lon="-74.12486">
+    <name>TP009</name>
+  </trkpt>
+  <trkpt lat="4.7422" lon="-74.12491">
+    <name>TP010</name>
+  </trkpt>
+  <trkpt lat="4.74217" lon="-74.12498">
+    <name>TP011</name>
+  </trkpt>
+  <trkpt lat="4.7421747" lon="-74.1249807">
+    <name>TP012</name>
+  </trkpt>
+  <trkpt lat="4.74208" lon="-74.12495">
+    <name>TP013</name>
+  </trkpt>
+  <trkpt lat="4.7420847" lon="-74.1249485">
+    <name>TP014</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

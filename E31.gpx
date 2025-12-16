@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Powered by Google, ©2025 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2025</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/4.727520801433028,+-74.0361438471137/4.7275261,-74.0367822/@4.7274048,-74.0390379,835m/data=!3m2!1e3!4b1!4m7!4m6!1m3!2m2!1d-74.0361438!2d4.7275208!1m0!3e3?entry=tts&g_ep=EgoyMDI1MTEyMy4xKgBIAVAD&skid=db8683ab-219a-47db-bf8c-02c4cbf72a16&hl=en</url-->
+    <time>2025-12-01T19:22:49Z</time>
+  </metadata>
+  <wpt lat="4.7275208" lon="-74.0361438">
+    <name>4.727520801433028</name>
+  </wpt>
+  <wpt lat="4.7275261" lon="-74.0367822">
+    <name>Unknown</name>
+  </wpt>
+<trk>
+  <name>4.727520801433028 to Unknown</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="4.7272832" lon="-74.03625">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="4.72731" lon="-74.0363">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="4.72753" lon="-74.03678">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="4.7275264" lon="-74.0367821">
+    <name>TP004</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

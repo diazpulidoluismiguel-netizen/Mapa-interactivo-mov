@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Powered by Google, ©2025 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2025</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/Edifico+C%C3%A9ntrika/4.6324287,-74.0653993/@4.6322365,-74.0667299,474m/data=!3m2!1e3!4b1!4m9!4m8!1m5!1m1!1s0x8e3f9a2f49608109:0xc08bd7ef8afae23!2m2!1d-74.066385!2d4.6317795!1m0!3e2?entry=tts&g_ep=EgoyMDI1MTExNi4wKgBIAVAD&skid=0f6968a6-c0b6-4b50-bd10-d19b87a8036f&hl=en</url-->
+    <time>2025-11-19T10:45:11Z</time>
+  </metadata>
+  <wpt lat="4.6317795" lon="-74.066385">
+    <name>Edifico Céntrika</name>
+  </wpt>
+  <wpt lat="4.6324287" lon="-74.0653993">
+    <name>Unknown</name>
+  </wpt>
+<trk>
+  <name>Edifico Céntrika to Unknown</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="4.6317951" lon="-74.0664705">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="4.63181" lon="-74.06647">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="4.63198" lon="-74.06644">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="4.63211" lon="-74.06642">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="4.63218" lon="-74.06641">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="4.63221" lon="-74.06648">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="4.63227" lon="-74.06647">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="4.63234" lon="-74.06646">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="4.63237" lon="-74.06645">
+    <name>TP009</name>
+  </trkpt>
+  <trkpt lat="4.6325" lon="-74.06643">
+    <name>TP010</name>
+  </trkpt>
+  <trkpt lat="4.63258" lon="-74.06641">
+    <name>TP011</name>
+  </trkpt>
+  <trkpt lat="4.6327" lon="-74.06639">
+    <name>TP012</name>
+  </trkpt>
+  <trkpt lat="4.632695" lon="-74.0663905">
+    <name>TP013</name>
+  </trkpt>
+  <trkpt lat="4.63268" lon="-74.06632">
+    <name>TP014</name>
+  </trkpt>
+  <trkpt lat="4.63246" lon="-74.06554">
+    <name>TP015</name>
+  </trkpt>
+  <trkpt lat="4.6324639" lon="-74.0655366">
+    <name>TP016</name>
+  </trkpt>
+  <trkpt lat="4.63248" lon="-74.06552">
+    <name>TP017</name>
+  </trkpt>
+  <trkpt lat="4.63248" lon="-74.06551">
+    <name>TP018</name>
+  </trkpt>
+  <trkpt lat="4.63249" lon="-74.0655">
+    <name>TP019</name>
+  </trkpt>
+  <trkpt lat="4.6324936" lon="-74.0654986">
+    <name>TP020</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

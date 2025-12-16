@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Powered by Google, ©2025 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2025</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/Cra.+25+%2345c-91,+Bogot%C3%A1/AK+24+-+Cl+49/@4.6383033,-74.0752364,237m/data=!3m1!1e3!4m14!4m13!1m5!1m1!1s0x8e3f9a329603ced7:0x5e44a932b0bde1ae!2m2!1d-74.0755279!2d4.6376861!1m5!1m1!1s0x8e3f9a32f2413561:0x5bdb3b6f9a2b9a30!2m2!1d-74.07462!2d4.6382!3e2?entry=tts&g_ep=EgoyMDI1MTExNi4wKgBIAVAD&skid=d31b441f-2651-40a2-9d9c-cd48d0c2f328&hl=en</url-->
+    <time>2025-11-19T10:06:41Z</time>
+  </metadata>
+  <wpt lat="4.6376861" lon="-74.0755279">
+    <name>Cra. 25 #45c-91</name>
+  </wpt>
+  <wpt lat="4.6382" lon="-74.07462">
+    <name>AK 24 - Cl 49</name>
+  </wpt>
+<trk>
+  <name>Cra. 25 #45c-91 to AK 24 - Cl 49</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="4.6376668" lon="-74.0754217">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="4.63792" lon="-74.07538">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="4.6379179" lon="-74.0753758">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="4.63791" lon="-74.0753">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="4.6378" lon="-74.07469">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="4.6378029" lon="-74.0746903">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="4.63787" lon="-74.07468">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="4.6382" lon="-74.07462">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="4.6382004" lon="-74.0746221">
+    <name>TP009</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

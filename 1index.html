@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Mapa interactivo con Leaflet</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Plugin para leer GPX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+  <style>
+    #map { 
+      height: 600px; 
+      width: 100%; 
+      position: relative; /* necesario para que el logo se superponga */
+    }
+    #logo {
+      position: absolute;
+      top: 5px;       /* distancia desde arriba */
+      right: 10px;     /* distancia desde la derecha */
+      width: 80px;     /* tamaño del logo */
+      z-index: 1000;   /* asegura que quede encima del mapa */
+    }
+  </style>
+</head>
+<body>
+  <h1>Índices de Caminabilidad</h1>
+  
+  <div id="map">
+    <!-- Logo fijo dentro del mapa -->
+    <img src="logo.png" id="logo" alt="Logo">
+  </div>
+
+  <script>
+    // Inicializar mapa centrado en Bogotá
+    var map = L.map('map').setView([4.711, -74.072], 12);
+
+    // Capa base
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap & © Carto',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+
+    // Lista de rutas con archivo, color, popup e iconos
+    var rutas = [
+      {
+        archivo: "E2.gpx",
+        color: "blue",
+        popup: "E2 <br> 🚏  Algunas fallas menores que no afectan significativamente el tránsito peatonal. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.No hay ciclorrutas en el entorno. <br>🏢 Multifamiliar en conjunto residencial. Usos limitados. Uso diurno con algo de actividad nocturna ocasional. <br>🚧 Señalización y reductores presentes, con cruces básicos y semáforos vehiculares sin fase peatonal. <br>🌿 Ambiente medianamente limpio, con sombra funcional, parque cercano y zonas verdes en buen estado. <br>🪧 Señalización presente pero con desgaste; sin salidas seguras ni indicadores peatonales claros. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E3.gpx",
+        color: "green",
+        popup: "E3 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Multifamiliar barrial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores activos, cruces básicos y semáforos con tiempos peatonales adecuados. <br>🌿 Ambiente medianamente limpio, con sombra escasa, parque cercano y zonas verdes aceptables. <br>🪧 Señalización funcional con desgaste; indicadores visibles pero faltan en zonas clave. <br>🛡️ Percepción ambigua de seguridad; presencia policial moderada pero no constante. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E4.gpx",
+        color: "blue",
+        popup: "E4 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos moderados. Uso diurno con algo de actividad nocturna ocasional. <br>🚧 adares y señalización presentes, pero sin cruces ni semáforos donde hacen falta. <br>🌿 Ambiente ordenado, con sombra funcional, parque cercano y vegetación bien diseñada. <br>🪧 Señalización parcial y deteriorada; indicadores escasos y poco comprensibles. <br>🛡️  Percepción ambigua de seguridad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E5.gpx",
+        color: "green",
+        popup: "E5<br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal. No hay ciclorrutas en el entorno. <br>🏢 Vivienda unifamiliar barrial. Usos limitados. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores visibles, cruces básicos y semáforos vehiculares sin fase peatonal. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque a media distancia y sin zonas verdes. <br>🪧 Señalización parcial con desgaste; indicadores visibles pero insuficientes.  <br>🛡️ Percepción ambigua de seguridad; nunca se observa presencia policial. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E6.gpx",
+        color: "orange",
+        popup: "E6 <br> 🚏 Andén en buen estado con ligeros detalles. <br>🚶‍♂️ Cruces visibles y señalizados. Ciclorruta en la misma cuadra o adyacente. <br>🏢 Edificio híbrido o mixto. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores presentes, cruces señalizados, pero sin semáforos peatonales. <br>🌿 Ambiente sucio, con sombra parcial, parque cercano pero sin zonas verdes. <br>🪧  Señalización clara pero mínima; sin semáforos peatonales ni señalización vertical. <br>🛡️ Percepción ambigua de seguridad; nunca se observa presencia policial. <br>",
+        startIcon: "icono_inicio4.png",
+        endIcon: "icono_fin4.png"
+      },
+      {
+        archivo: "E7.gpx",
+        color: "blue",
+        popup: "E7 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal. Ciclorruta integrada en el espacio peatonal y segura. <br>🏢 Vivienda unifamiliar barrial. Alta integración de usos. Uso regular y seguro en ambos turnos. <br>🚧  Señalización completa, cruces visibles y semáforos con tiempos peatonales adecuados. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 Señalización completa y bien ubicada; indicadores peatonales claros. <br>🛡️ Percepción ambigua de seguridad; presencia policial frecuente o rondas visibles. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E8.gpx",
+        color: "red",
+        popup: "E8 <br> 🚏 Algunas fallas menores que no  afectan significativamente el tránsito peatonal. <br>🚶‍♂️ Cruces visibles y señalizados. Ciclorruta a más de 5 cuadras de distancia. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos moderados. Uso diurno con algo de actividad nocturna ocasional. <br>🚧 Radares y reductores activos, con cruces señalizados y semáforos funcionales. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 Señalización funcional con desgaste; indicadores peatonales claros y visibles. <br>🛡️  Generalmente seguro, con buena visibilidad; presencia policial frecuente. <br>",
+        startIcon: "icono_inicio3.png",
+        endIcon: "icono_fin3.png"
+      },
+      {
+        archivo: "E10.gpx",
+        color: "red",
+        popup: "E10 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Cruces visibles y señalizados. Ciclorruta a más de 5 cuadras de distancia. <br>🏢 Multifamiliar barrial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores presentes, cruces señalizados y semáforos sin tiempos adecuados para peatones. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes bien distribuidas. <br>🪧 Señalización funcional con desgaste; indicadores peatonales claros. <br>🛡️ Percepción de inseguridad frecuente; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio3.png",
+        endIcon: "icono_fin3.png"
+      },
+      {
+        archivo: "E11.gpx",
+        color: "orange",
+        popup: "E11 <br> 🚏 Presencia de huecos, baldosas sueltas y obstrucciones graves. <br>🚶‍♂️ Cruces visibles y señalizados. Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Cumplimiento de velocidad, cruces señalizados y semáforos peatonales funcionales. <br>🌿 Ambiente limpio, con sombra parcial, parque cercano y zonas verdes continuas. <br>🪧 Señalización funcional y bien ubicada; indicadores peatonales claros. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio4.png",
+        endIcon: "icono_fin4.png"
+      },
+      {
+        archivo: "E12.gpx",
+        color: "green",
+        popup: "E12 <br>🚏 Andén en buen estado con ligeros detalles. <br>🚶‍♂️ Cruces visibles y señalizados. Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧  Señalización y reductores activos, con cruces y semáforos peatonales adecuados. <br>🌿 Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧 Señalización funcional con desgaste; indicadores peatonales claros. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E13.gpx",
+        color: "orange",
+        popup: "E13 <br>🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️  Demarcación básica sin prioridad peatonal.Ciclorruta a más de 5 cuadras de distancia. <br>🏢 Multifamiliar barrial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores presentes, cruces básicos y ausencia de semáforos donde se requieren. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 eñalización parcial y deteriorada; sin semáforos peatonales. <br>🛡️ Percepción ambigua de seguridad; presencia policial moderada. <br>",
+        startIcon: "icono_inicio4.png",
+        endIcon: "icono_fin4.png"
+      },
+      {
+        archivo: "E14.gpx",
+        color: "blue",
+        popup: "E14 <br>🚏 Algunas fallas menores que no afectan significativamente el tránsito peatonal. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢  Vivienda unifamiliar barrial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Radares y señalización completa, con cruces y semáforos peatonales bien diseñados. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 Señalización completa y clara; indicadores peatonales bien distribuidos.  <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial frecuente. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E15.gpx",
+        color: "blue",
+        popup: "E15 <br> 🚏  Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.No hay ciclorrutas en el entorno. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos limitados. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores visibles, cruces básicos y semáforos vehiculares sin fase peatonal. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 Señalización parcial con desgaste; semáforos vehiculares sin fase peatonal. <br>🛡️ Percepción ambigua de seguridad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E16.gpx",
+        color: "green",
+        popup: "E16 <br> 🚏 Presencia de huecos, baldosas sueltas y obstrucciones graves. <br>🚶‍♂️  Cruces improvisados o sin señalización. Ciclorruta a más de 5 cuadras de distancia. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos limitados. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores presentes, pero los cruces son improvisados y no hay semáforos. <br>🌿 Ambiente sucio, con sombra parcial, parque cercano y vegetación deteriorada. <br>🪧 Señalización deteriorada y poco comprensible; sin semáforos peatonales. <br>🛡️ Percepción de inseguridad frecuente; nunca se observa presencia policial. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E17.gpx",
+        color: "green",
+        popup: "E17 <br> 🚏 Andén en buen estado con ligeros detalles. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Multifamiliar barrial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧  Señalización activa, cruces señalizados y semáforos peatonales funcionales. <br>🌿  Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧 Señalización funcional con desgaste; indicadores peatonales visibles. <br>🛡️  Percepción ambigua de seguridad; presencia policial moderada. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E18.gpx",
+        color: "orange",
+        popup: "E18 <br> 🚏 Algunas fallas menores que no afectan significativamente el tránsito peatonal. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢  Vivienda unifamiliar barrial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Radares y reductores presentes, con cruces y semáforos peatonales adecuados. <br>🌿 Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧 Señalización funcional con desgaste; indicadores peatonales visibles. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial frecuente. <br>",
+        startIcon: "icono_inicio4.png",
+        endIcon: "icono_fin4.png"
+      },
+      {
+        archivo: "E19.gpx",
+        color: "blue",
+        popup: "E19 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Vivienda unifamiliar en conjunto residencial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Señalización y reductores activos, pero con cruces básicos y semáforos vehiculares. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 Señalización funcional con desgaste; semáforos vehiculares sin fase peatonal. <br>🛡️  Percepción de inseguridad frecuente; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E20.gpx",
+        color: "blue",
+        popup: "E20 <br> 🚏 Presencia de huecos, baldosas sueltas y obstrucciones graves. <br>🚶‍♂️ Cruces improvisados o sin señalización.No hay ciclorrutas en el entorno. <br>🏢 Vivienda unifamiliar barrial. Usos limitados. Actividad en ambos turnos, baja en la noche. <br>🚧 eductores presentes, cruces improvisados y ausencia de semáforos donde se requieren. <br>🌿 Ambiente sucio, sin sombra ni parques cercanos; vegetación deteriorada. <br>🪧  Señalización inexistente; sin semáforos ni indicadores peatonales. <br>🛡️ Percepción de inseguridad frecuente; nunca se observa presencia policial. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E22.gpx",
+        color: "green",
+        popup: "E22 <br> 🚏 Presencia de huecos, baldosas sueltas y obstrucciones graves. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Multifamiliar barrial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores presentes, cruces señalizados y semáforos peatonales funcionales. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧  Señalización funcional con desgaste; indicadores peatonales claros. <br>🛡️ Percepción ambigua de seguridad; presencia policial moderada. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E23.gpx",
+        color: "blue",
+        popup: "E23 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.Ciclorruta a más de 5 cuadras de distancia. <br>🏢 Vivienda unifamiliar barrial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Radares activos, cruces básicos y semáforos peatonales adecuados. <br>🌿Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧  Señalización completa y actualizada; indicadores peatonales bien distribuidos. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial frecuente. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E24.gpx",
+        color: "red",
+        popup: "E24 <br> 🚏 Algunas fallas menores que no afectan significativamente el tránsito peatonal. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Vivienda unifamiliar en conjunto residencial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores visibles, cruces señalizados y semáforos peatonales funcionales. <br>🌿 Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧 Señalización funcional con desgaste; indicadores peatonales visibles. <br>🛡️ Percepción ambigua de seguridad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio3.png",
+        endIcon: "icono_fin3.png"
+      },
+      {
+        archivo: "E25.gpx",
+        color: "green",
+        popup: "E25 <br> 🚏 Irregularidades constantes que dificultan el paso. <br>🚶‍♂️ Demarcación básica sin prioridad peatonal.No hay ciclorrutas en el entorno. <br>🏢 Vivienda unifamiliar barrial. Usos limitados. Actividad en ambos turnos, baja en la noche. <br>🚧 Señalización presente, cruces básicos y ausencia de semáforos donde se requieren. <br>🌿Ambiente sucio, con sombra parcial, parque a media distancia y vegetación deteriorada. <br>🪧 Señalización funcional con desgaste; indicadores peatonales visibles. <br>🛡️ Percepción de inseguridad frecuente; nunca se observa presencia policial. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E26.gpx",
+        color: "blue",
+        popup: "E26 <br> 🚏 Presencia de huecos, baldosas sueltas y obstrucciones graves. <br>🚶‍♂️ Cruces improvisados o sin señalización. Ciclorruta a más de 5 cuadras de distancia. <br>🏢 Vivienda unifamiliar en conjunto residencial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Reductores activos, cruces improvisados y sin semáforos peatonales. <br>🌿Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧 Señalización inexistente; sin semáforos ni indicadores peatonales. <br>🛡️ Percepción de inseguridad frecuente; nunca se observa presencia policial. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E27.gpx",
+        color: "red",
+        popup: "E27 <br> 🚏  Andén en buen estado con ligeros detalles. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Multifamiliar barrial. Usos moderados. Actividad en ambos turnos, baja en la noche. <br>🚧 Radares y reductores presentes, con cruces y semáforos peatonales adecuados. <br>🌿 Ambiente medianamente limpio, con sombra parcial, parque cercano y zonas verdes aceptables. <br>🪧 Señalización funcional con desgaste; indicadores peatonales claros. <br>🛡️ Percepción ambigua de seguridad; presencia policial moderada. <br>",
+        startIcon: "icono_inicio3.png",
+        endIcon: "icono_fin3.png"
+      },
+      {
+        archivo: "E28.gpx",
+        color: "green",
+        popup: "E28 <br> 🚏  Algunas fallas menores que no afectan significativamente el tránsito peatonal. <br>🚶‍♂️ Cruces visibles y señalizados.Ciclorruta cercana a menos de 5 cuadras. <br>🏢 Vivienda unifamiliar en conjunto residencial. Alta integración de usos. Actividad en ambos turnos, baja en la noche. <br>🚧 Alta infraestructura vial con radares, cruces señalizados y semáforos peatonales bien sincronizados. <br>🌿- Ambiente limpio, con sombra funcional, parque cercano y zonas verdes continuas. <br>🪧 Señalización completa y actualizada; indicadores peatonales bien distribuidos. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial frecuente. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      },
+      {
+        archivo: "E29.gpx",
+        color: "red",
+        popup: "E29 <br> 🚏 En buen estado, con ligeros detalles.  <br>🚶‍♂️ Cruces visibles y señalizados. <br>🏢  Vivienda unifamiliar en conjunto residencial; usos mixtos limitados (vivienda + pocos comercios); uso diurno con baja actividad nocturna. <br>🚧 Señalización de velocidad máxima y reductores en zonas escolares.  <br>🌿  Medianamente limpio, con sombra parcial y parque cercano. <br>🪧 Señalización funcional con desgaste; indicadores peatonales visibles. <br>🛡️ - Percepción ambigua de seguridad; presencia policial muy ocasional. <br>",
+        startIcon: "icono_inicio3.png",
+        endIcon: "icono_fin3.png"
+      },
+      {
+        archivo: "E31.gpx",
+        color: "blue",
+        popup: "E31 <br> 🚏 Caben dos personas con algo de espacio adicional, superficie aceptable <br>🚶‍♂️ Cruces seguros, bien demarcados, con prioridad peatonal. <br>🏢 Edificio híbrido o mixto; alta integración de usos (vivienda, comercio, servicios); uso regular y seguro en ambos turnos. <br>🚧 Radares, señalización de velocidad máxima y reductores.  <br>🌿 Ordenado y limpio, con sombra funcional y parque cercano. <br>🪧 Señalización completa y clara; indicadores peatonales bien distribuidos. <br>🛡️ Generalmente seguro, con buena visibilidad; presencia policial frecuente. <br>",
+        startIcon: "icono_inicio.png",
+        endIcon: "icono_fin.png"
+      },
+      {
+        archivo: "E32.gpx",
+        color: "green",
+        popup: "E32 <br> 🚏Cemento simple, con fallas menores. <br>🚶‍♂️ Cruces improvisados o sin señalización. <br>🏢 Vivienda unifamiliar barrial; usos mixtos limitados; actividad en ambos turnos pero baja en la noche. <br>🚧 Señalización de reducción de velocidad en zonas escolares.  <br>🌿 Ambiente medianamente limpio, con sombra parcial y parque a media distancia. <br>🪧Señalización funcional con desgaste; indicadores peatonales insuficientes  <br>🛡️ Percepción ambigua de seguridad; presencia policial moderada. <br>",
+        startIcon: "icono_inicio2.png",
+        endIcon: "icono_fin2.png"
+      }
+      
+    ];
+
+    // Cargar cada ruta con su color, iconos y popup
+    rutas.forEach(function(r) {
+      new L.GPX(r.archivo, {
+        async: true,
+        polyline_options: {
+          color: r.color,
+          weight: 4,
+          opacity: 0.8
+        },
+        marker_options: {
+          startIconUrl: r.startIcon,
+          endIconUrl: r.endIcon,
+          shadowUrl: null
+        }
+      }).on('loaded', function(e) {
+        map.fitBounds(e.target.getBounds());
+        e.target.bindPopup(r.popup);
+      }).addTo(map);
+    });
+  </script>
+</body>
+</html>

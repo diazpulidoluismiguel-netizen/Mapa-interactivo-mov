@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Powered by Google, ©2025 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2025</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/Conjunto+Residencial+Sabana+Verde+1/4.6678576,-74.1327731/@4.667287,-74.1333001,237m/data=!3m1!1e3!4m10!4m9!1m5!1m1!1s0x8e3f9dbe69363b6f:0x3e963eef493da8a2!2m2!1d-74.1333788!2d4.6667658!1m1!4e1!3e3?entry=tts&g_ep=EgoyMDI1MTExNi4wKgBIAVAD&skid=97418475-56e4-46db-8bb5-c1566c1cd8d2&hl=en</url-->
+    <time>2025-11-19T11:31:20Z</time>
+  </metadata>
+  <wpt lat="4.6667658" lon="-74.1333788">
+    <name>Conjunto Residencial Sabana Verde 1</name>
+  </wpt>
+  <wpt lat="4.6678576" lon="-74.1327731">
+    <name>Unknown</name>
+  </wpt>
+<trk>
+  <name>Conjunto Residencial Sabana Verde 1 to Unknown</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="4.6668737" lon="-74.1332658">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="4.66667" lon="-74.13307">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="4.66672" lon="-74.13302">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="4.66707" lon="-74.13266">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="4.66742" lon="-74.1323">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="4.66762" lon="-74.13248">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="4.66778" lon="-74.13264">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="4.66789" lon="-74.13274">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="4.667891" lon="-74.1327355">
+    <name>TP009</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>
